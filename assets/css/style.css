@@ -81,6 +81,7 @@ input {
     border: solid;
     border-width: 1px;
     border-color: #000000;
+    padding: 4px;
 }
 
 p.chain {

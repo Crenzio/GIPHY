@@ -7,41 +7,50 @@ $('#add').keypress(function (event) {
 });
 
 $("#adder").on("click", function () {
-    $("#1").empty();
-
     var userChoice = $("#add").val().trim();
-    game.push(userChoice);
 
-    list();
+    if (userChoice === "") {
+        null;
+    }
+    else {
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        userChoice + "&api_key=dc6zaTOxFJmzC&limit=10";
+        $("#2").html("<h3>Click an Image to Start/Stop It's Animation</h3>");
+        $("#1").empty();
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-        .then(function (response) {
+        game.push(userChoice);
 
-            var results = response.data;
-            for (var i = 0; i < results.length; i++) {
+        list();
 
-                var gameDiv = $("<div>");
-                var p = $("<p>").text("Rating: " + results[i].rating);
-                var gameImage = $("<img>");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+            userChoice + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-                gameDiv.attr("class", "chain");
-                p.attr("class", "chain");
-                gameImage.attr("src", results[i].images.fixed_height_still.url);
-                gameImage.attr("still", results[i].images.fixed_height_still.url);
-                gameImage.attr("moving", results[i].images.fixed_height.url);
-                gameImage.attr("state", "still");
-                gameImage.attr("class", "doStuff");
-                gameDiv.append(p);
-                gameDiv.append(gameImage);
-                $("#3").append(gameDiv);
-            }
-        });
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+            .then(function (response) {
+
+                var results = response.data;
+                for (var i = 0; i < results.length; i++) {
+
+                    var gameDiv = $("<div>");
+                    var p = $("<p>").text("Rating: " + results[i].rating);
+                    var gameImage = $("<img>");
+
+                    gameDiv.attr("class", "chain");
+                    p.attr("class", "chain");
+                    gameImage.attr("src", results[i].images.fixed_height_still.url);
+                    gameImage.attr("data-still", results[i].images.fixed_height_still.url);
+                    gameImage.attr("data-animate", results[i].images.fixed_height.url);
+                    gameImage.attr("data-state", "still");
+                    gameImage.attr("class", "doStuff");
+                    gameDiv.append(p);
+                    gameDiv.append(gameImage);
+                    $("#3").append(gameDiv);
+                }
+
+            });
+    }
 });
 
 function list() {
@@ -59,7 +68,7 @@ function list() {
 }
 
 $(document).on('click', '.choice', function () {
-
+    $("#2").html("<h3>Click an Image to Start/Stop It's Animation</h3>");
     $("#3").empty();
 
     var game = $(this).attr("type");
@@ -86,6 +95,7 @@ $(document).on('click', '.choice', function () {
                 gameImage.attr("data-still", results[i].images.fixed_height_still.url);
                 gameImage.attr("data-animate", results[i].images.fixed_height.url);
                 gameImage.attr("data-state", "still");
+                gameImage.attr("class", "doStuff");
                 gameDiv.append(p);
                 gameDiv.append(gameImage);
                 $("#3").append(gameDiv);
@@ -93,15 +103,16 @@ $(document).on('click', '.choice', function () {
         });
 });
 
-$("#3").on('click', '.chain', function () {
+$(document).on('click', '.doStuff', function () {
     var state = $(this).attr("data-state");
-    console.log(state);
     if (state === "still") {
         var animateUrl = $(this).attr("data-animate");
         $(this).attr("src", animateUrl);
+        $(this).attr("data-state", "animate");
     } else {
         var stillUrl = $(this).attr("data-still");
         $(this).attr("src", stillUrl);
+        $(this).attr("data-state", "still");
     }
 });
 
