@@ -1,0 +1,94 @@
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+button {
+    font-weight: bolder;
+}
+
+button.choice {
+    border: solid;
+    border-width: 3px;
+    border-color: skyblue;
+    background-color: blue;
+    color: white;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+div.games {
+    margin-bottom: 3px;
+}
+
+div.border {
+    border: solid;
+    border-width: 0px;
+    border-bottom-width: 5px; 
+    border-bottom-color: skyblue;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+div.center {
+    margin: auto;
+    margin-bottom: 3px;
+    left: 50%;
+    right: -50%;
+    text-align: center;
+    margin-top: 0px;
+}
+
+div.chain {
+    border: solid;
+    border-width: 3px;
+    border-color: skyblue;
+    display: inline-block;
+    margin: 5px;
+    margin-top: 0px;
+}
+
+div.frame {
+    margin: auto;
+    left: 50%;
+    right: -50%;
+    padding: 5px;
+}
+
+div.main {
+    margin: auto;
+    left: 50%;
+    right: -50%;
+    padding: 5px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+img {
+    max-width: 90vw;
+    max-height: 180vw;
+}
+
+input {
+    top: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 500px;
+    border: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+p.chain {
+    margin: 0;
+    padding: 3px;
+    border: solid;
+    border-width: 0px;
+    border-bottom-width: 3px;
+    border-color: skyblue;
+
+}
