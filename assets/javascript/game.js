@@ -94,8 +94,6 @@ $(document).on('click', '.choice', function () {
 });
 
 $("#3").on('click', '.chain', function () {
-
-function ender() {
     var state = $(this).attr("data-state");
     console.log(state);
     if (state === "still") {
@@ -104,7 +102,6 @@ function ender() {
     } else {
         var stillUrl = $(this).attr("data-still");
         $(this).attr("src", stillUrl);
-    }
     }
 });
 
