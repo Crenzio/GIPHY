@@ -1,10 +1,21 @@
-var game = ["Assassins Creed", "Bioshock Infinite", "Dark Souls", "Infamous 2", "League of Legends", "Legend of Zelda", "Portal", "Prince of Persia", "Super Mario World", "Undertale"];
+var game = [];
 
 $('#add').keypress(function (event) {
     if (event.keyCode == 13) {
         event.preventDefault();
+        document.getElementById("adder").click();
     }
 });
+
+$("#reset").on("click", function () {
+    game = [];
+    $("#1").empty();
+    $("#2").empty();
+    $("#3").empty();
+    $("#past").empty();
+    $("#pastBreak").removeClass("border");
+});
+
 
 $("#adder").on("click", function () {
     var userChoice = $("#add").val().trim();
@@ -18,6 +29,8 @@ $("#adder").on("click", function () {
         $("#1").empty();
 
         game.push(userChoice);
+        $("#past").html("<h3>Your Past Searches:</h3>");
+        $("#pastBreak").addClass("border");
 
         list();
 
@@ -63,7 +76,6 @@ function list() {
         selectDiv.attr("class", "choice");
         selectDiv.attr("type", game[i]);
         $("#1").append(selectDiv);
-
     }
 }
 

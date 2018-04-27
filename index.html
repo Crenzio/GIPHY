@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>GIPHY Game Image Finder</title>
+    <title>GIPHY Graphic Grabber</title>
 
 </head>
 
@@ -20,22 +20,25 @@
 
     <div class="center">
 
+        <span id="past"></span>
+
         <div class="games" id="1">
         </div>
 
-        <div class="border"></div>
+        <div id="pastBreak"></div>
 
         <div class="frame">
-            <h3>Add a Game:</h3>
+            <h3>Find 10 GIPHY Images for Anything!</h3>
             <div>
                 <form id="game-adder">
-                    <input type="text" id="add">
+                    <input type="text" id="add" autocomplete="off" placeholder="Type Your Search Query Here">
                 </form>
             </div>
-            <button id="adder">Click Here to Add Your Game</button>
+            <button id="adder" class="click">Search</button>
+            <button id="reset" class="click">Reset History</button>
         </div>
 
-        <div class="border"></div>
+        <div class="border drop"></div>
 
         <div id="2"></div>
 
