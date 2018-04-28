@@ -14,6 +14,7 @@ $("#reset").on("click", function () {
     $("#3").empty();
     $("#past").empty();
     $("#pastBreak").removeClass("border");
+    document.getElementById("add").value = "";
 });
 
 
@@ -29,7 +30,7 @@ $("#adder").on("click", function () {
         $("#1").empty();
 
         game.push(userChoice);
-        $("#past").html("<h3>Your Past Searches:</h3>");
+        $("#past").html("<h3 class='blue'>Your Past Searches:</h3>");
         $("#pastBreak").addClass("border");
 
         list();
@@ -77,6 +78,7 @@ function list() {
         selectDiv.attr("type", game[i]);
         $("#1").append(selectDiv);
     }
+    document.getElementById("add").value = "";
 }
 
 $(document).on('click', '.choice', function () {
