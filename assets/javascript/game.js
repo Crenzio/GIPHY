@@ -26,6 +26,8 @@ $("#adder").on("click", function () {
     }
     else {
 
+        document.getElementById("presentBreak").click();
+
         $("#2").html("<h3>Click an Image to Start/Stop It's Animation</h3>");
         $("#1").empty();
 
