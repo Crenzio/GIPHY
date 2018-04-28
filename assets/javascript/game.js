@@ -3,7 +3,7 @@ var game = [];
 $('#add').keypress(function (event) {
     if (event.keyCode == 13) {
         event.preventDefault();
-        document.getElementById("presentBreak").click();
+        document.getElementById("adder").click();
     }
 });
 
