@@ -3,14 +3,9 @@ var game = [];
 $('#add').keypress(function (event) {
     if (event.keyCode == 13) {
         event.preventDefault();
-        document.getElementById("adder").click();
-        nix();
+        document.getElementById("presentBreak").click();
     }
 });
-
-function nix() {
-    document.getElementById("presentBreak").click();
-}
 
 $("#reset").on("click", function () {
     game = [];
