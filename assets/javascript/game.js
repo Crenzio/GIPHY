@@ -81,6 +81,7 @@ function list() {
         $("#1").append(selectDiv);
     }
     document.getElementById("add").value = "";
+    document.getElementById("presentBreak").click();
 }
 
 $(document).on('click', '.choice', function () {
